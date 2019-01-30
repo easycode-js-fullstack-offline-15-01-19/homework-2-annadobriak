@@ -3,12 +3,12 @@
 //------------Преобразование примитивов. Задачи.------
 //Чему равно а, почему?
 
-let a = 0 || 'string'; // string (0 - это false)
-let a = 1 && 'string'; // string (Оба операнда true, вернет последнее true)
-let a = null || 25; // 25 (null - это false)
-let a = null && 25;  // null 
-let a = null || 0 || 35; // 35 (null - это false, 0 - это false)
-let a = null && 0 && 35; // null (null - это первый false, дальше искать не будет)
+let a1 = 0 || 'string'; // string (0 - это false)
+let a2 = 1 && 'string'; // string (Оба операнда true, вернет последнее true)
+let a3 = null || 25; // 25 (null - это false)
+let a4 = null && 25;  // null 
+let a5 = null || 0 || 35; // 35 (null - это false, 0 - это false)
+let a6 = null && 0 && 35; // null (null - это первый false, дальше искать не будет)
 
 //Что отобразится в консоли. Почему?
 
@@ -24,12 +24,12 @@ true + undefined // NaN
 
 //--------------If else. Задачи.---------------
 //1. Если переменная равна “hidden”, присвоить ей значение “visible”, иначе - “hidden”.
-let a = 'h';
+let a = 'hidden';
 
 if (a === 'hidden') {
-	console.log('visible');
+	a = 'visible';
 } else {
-	console.log('hidden');
+	a = 'hidden';
 }
 
 //2. Используя if, записать условие:
@@ -38,14 +38,14 @@ if (a === 'hidden') {
 	//c. если больше нуля - используя оператор “присвоение”, переменную умножить на 10 
 	  // (использовать краткую запись).
 
-let a = -7;
+let k = 0;
 
-if (!a) {
-	console.log(1);
-} else if (a < 0) {
-	console.log('less then zero');
+if (!k) {
+	k = 1;
+} else if (k < 0) {
+	k = 'less then zero';
 } else {
-	console.log(a *= 10);
+	k *= 10;
 }
 
 /*3. Дан объект let car = { name: 'Lexus', age: 10, create: 2008, needRepair: false }. 
@@ -80,10 +80,11 @@ let item = {
 	priceWithDiscount: ''
 };
 
-if (item.discount) {
-	console.log(`priceWithDiscount: ${parseInt(item.price) - (parseInt(item.price) / 100 * parseInt(item.discount))}`);
+if (parseFloat(item.discount) > 0) {
+	item.priceWithDiscount = parseFloat(item.price) - (parseFloat(item.price) / 100 * parseFloat(item.discount)) + '$';
+	console.log(item.priceWithDiscount);
 } else {
-	console.log(`price: ${item.price}`);
+	console.log(item.price);
 }
 
 /*5. Дан следующий код:
@@ -101,8 +102,8 @@ let product = {
 	name: 'Яблоко',
 	price: '10$'
 };
-let min = 10; // минимальная цена
-let max = 20; // максимальная цена
+let min = 10; 
+let max = 20; 
 
 if (parseInt(product.price) >= min && parseInt(product.price) <= max) {
 	console.log(`name: ${product.name}`);
@@ -125,8 +126,8 @@ if (a === ‘block’) {
 Записать условие, используя конструктор switch. В консоли должно отразиться только одно значение.
 */
 
-let a = 'none';
-switch (a) {
+let d = 'none';
+switch (d) {
 	case 'block':
 		console.log('block');
 		break;
@@ -143,9 +144,9 @@ switch (a) {
 // 2.Из задач по условному оператору if else выполнить задачи 1, 2 и 3 в виде тернарного оператора
 //2.1 Если переменная равна “hidden”, присвоить ей значение “visible”, иначе - “hidden”.
 
-let a = 'hidden';
+let b = 'hidden';
 
-a === 'hidden' ? console.log('visible') : console.log('hidden');
+b = b === 'hidden' ? 'visible' : 'hidden';
 
 /*2.2 
 	a. если переменная равна нулю, присвоить ей 1;
@@ -154,18 +155,18 @@ a === 'hidden' ? console.log('visible') : console.log('hidden');
 	(использовать краткую запись).
 */
 
-let a = 3;
+let c = -9;
 
-a === 0 ? console.log(a = 1)
-	: a < 0 ? console.log('less then zero')
-		: console.log(a *= 10);
+c = c === 0 ? 1
+	: c < 0 ? 'less then zero'
+		: c *= 10;
 
 /*2.3 Дан объект let car = { name: 'Lexus', age: 10, create: 2008, needRepair: false }. 
 Написать условие если возраст машины больше 5 лет то нужно вывести в консоль сообщение 
 'Need Repair' и свойство needRepair в объекте car изменить на true; иначе изменить на false.
 */
 
- let car = {
+ let car2 = {
 	name: 'Lexus',
  	age: 10,
  	create: 2008,
